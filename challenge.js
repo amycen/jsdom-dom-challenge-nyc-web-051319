@@ -9,6 +9,8 @@ const pause = document.querySelector('#pause')
 const resume = document.querySelector('#resume')
 const likesList = document.querySelector('.likes')
 const commentSubmit = document.querySelector('#submit')
+const commentList = document.querySelector('#list')
+const inputBox = document.querySelector('#input')
 
 minus.addEventListener('click', function(){secondTimer(-1);});
 plus.addEventListener('click', function(){secondTimer(1);});
@@ -30,6 +32,11 @@ resume.addEventListener('click', function(){
     plus.disabled = false;
     heart.disabled = false;
     commentSubmit.disabled = false;
+})
+commentSubmit.addEventListener('click', (e)=>{
+    e.preventDefault();
+    commentList.innerHTML += `<p>${inputBox.value}</p>`
+    inputBox.value = '';
 })
 
 function likeANumber(number) {
